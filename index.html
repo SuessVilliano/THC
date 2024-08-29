@@ -3,67 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trade Hybrid Platform</title>
+    <title>Trade Hybrid - THC Platform</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="dark-theme">
+    <div class="toggle-theme" onclick="toggleTheme()">🌙</div>
     <header>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#ecosystem">Ecosystem</a>
-            <a href="#marketplace">Marketplace</a>
-            <a href="#staking">Staking</a>
-            <a href="#community">Community</a>
-            <button id="theme-toggle" class="theme-button"><span id="theme-icon">🌞</span></button>
-        </nav>
+        <h1>Welcome to the THC Platform</h1>
+        <p>This is a preview of our upcoming decentralized trading platform.</p>
+        <div class="buttons">
+            <a href="#staking" class="button">Start Staking</a>
+            <a href="#matrix" class="button">Join the Matrix</a>
+            <a href="https://raydium.io/" target="_blank" class="button">Buy THC on Raydium</a>
+            <a href="https://solscan.io/tx/Wy3mFTbvL92pXoyP5UFt37g48GEjHj6oh24HA21jdbg1tm5zNNtwiwG3fHTQ9W7C3tjS2YkZiuMhdA7X1LSqKGg" target="_blank" class="button">Live Transactions</a>
+        </div>
     </header>
+    <nav>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#staking">Staking</a>
+        <a href="#community">Community</a>
+    </nav>
+    <div class="container">
+        <div class="section" id="ecosystem">
+            <h2>The THC Ecosystem</h2>
+            <p>Trade Hybrid Coin (THC) is more than just a cryptocurrency; it’s a gateway to a world where trading, learning, and real-world value converge.</p>
+            <ul>
+                <li><strong>Staking & Rewards:</strong> Stake your THC tokens to earn rewards, gain voting power, and access exclusive community features.</li>
+                <li><strong>THC Matrix Platform:</strong> Move up from Bronze to Silver and beyond as you engage with the community, share referral links, and stake your tokens.</li>
+                <li><strong>Live Events & Education:</strong> Join live trading sessions, receive expert signals, and access a wealth of educational resources.</li>
+            </ul>
+        </div>
 
-    <section id="home">
-        <div class="hero">
-            <h1>Welcome to the THC Platform</h1>
-            <p>This is a preview of our upcoming decentralized trading platform.</p>
-            <div class="cta-buttons">
-                <a href="#staking" class="btn">Start Staking</a>
-                <a href="#matrix" class="btn">Join the Matrix</a>
-                <a href="#buy" class="btn">Buy THC on Raydium</a>
-                <a href="https://solscan.io/tx/Wy3mFTbvL92pXoyP5UFt37g48GEjHj6oh24HA21jdbg1tm5zNNtwiwG3fHTQ9W7C3tjS2YkZiuMhdA7X1LSqKGg" class="btn">Live Transactions</a>
+        <div class="section" id="marketplace">
+            <h2>THC Marketplace: A New Way to Shop</h2>
+            <p>We’re bringing the future of shopping to your fingertips with our THC Marketplace.</p>
+            <ul>
+                <li><strong>Smart QR Codes:</strong> Scan products to view them in 3D, check live inventory, and see who else is interested.</li>
+                <li><strong>Seamless Blockchain Transactions:</strong> Complete purchases on the blockchain with security and transparency.</li>
+                <li><strong>Real-Time Tracking:</strong> Track your purchases from store to door with integrated beacon technology.</li>
+            </ul>
+        </div>
+
+        <div class="section" id="staking">
+            <h2>Stake Your THC</h2>
+            <p>Stake your tokens and earn rewards while contributing to the governance and development of the platform.</p>
+            <a href="#" class="button">Start Staking</a>
+        </div>
+
+        <div class="section" id="matrix">
+            <h2>Matrix Overview</h2>
+            <p>Learn how to maximize your earnings through our unique matrix system. Participate, refer, and grow your wealth with THC.</p>
+            <a href="#" class="button">Join the Matrix</a>
+        </div>
+
+        <div class="section" id="strains">
+            <h2>THC Cannabis Strains: Fuel Your Day</h2>
+            <p>Our mission is to support not just financial growth but also your well-being. We’ve partnered with top cannabis growers to create unique strains that align with the needs of our community:</p>
+            <div class="strains">
+                <div class="strain">
+                    <h3>Trade Hybrid Haze</h3>
+                    <p>A sativa-dominant strain designed for traders who need focus, clarity, and an uplifting mood.</p>
+                </div>
+                <div class="strain">
+                    <h3>Market High</h3>
+                    <p>Ride the market highs with this energizing sativa that boosts creativity and decision-making.</p>
+                </div>
+                <div class="strain">
+                    <h3>Trader's Lift</h3>
+                    <p>Stay lifted and alert during long trading sessions with this powerful and uplifting sativa.</p>
+                </div>
+                <div class="strain">
+                    <h3>Downtime Dream</h3>
+                    <p>A calming indica strain that helps traders relax and unwind after a busy day.</p>
+                </div>
+                <div class="strain">
+                    <h3>Market Calm</h3>
+                    <p>This indica-dominant hybrid soothes the mind and body, perfect for easing the stress of market volatility.</p>
+                </div>
+                <div class="strain">
+                    <h3>Trader's Rest</h3>
+                    <p>End your day with this restful indica, designed to melt away tension and promote deep sleep.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section id="ecosystem">
-        <h2>The THC Ecosystem</h2>
-        <p>Trade Hybrid Coin (THC) is more than just a cryptocurrency; it’s a gateway to a world where trading, learning, and real-world value converge.</p>
-        <ul>
-            <li><strong>Staking & Rewards:</strong> Stake your THC tokens to earn rewards, gain voting power, and access exclusive community features.</li>
-            <li><strong>THC Matrix Platform:</strong> Move up from Bronze to Silver and beyond as you engage with the community, share referrals, and stake your tokens.</li>
-            <li><strong>Live Events & Education:</strong> Join live trading sessions, receive expert signals, and access a wealth of educational resources.</li>
-        </ul>
-    </section>
-
-    <section id="marketplace">
-        <h2>THC Marketplace</h2>
-        <p>Experience the future of shopping with our THC Marketplace.</p>
-        <ul>
-            <li><strong>Smart QR Codes:</strong> Scan products to view them in 3D, check live inventory, and see who else is interested.</li>
-            <li><strong>Seamless Blockchain Transactions:</strong> Complete purchases on the blockchain with security and transparency.</li>
-            <li><strong>Real-Time Tracking:</strong> Track your purchases from store to door with integrated beacon technology.</li>
-        </ul>
-    </section>
-
-    <section id="staking">
-        <h2>Stake Your THC</h2>
-        <p>Stake your tokens and earn rewards while contributing to the governance and development of the platform.</p>
-    </section>
-
-    <section id="community">
-        <h2>Join Our Community</h2>
-        <p>Be a part of a dynamic, thriving community of traders, learners, and innovators. [Link to Community Page]</p>
-    </section>
+        <div class="section" id="community">
+            <h2>Join Our Community</h2>
+            <p>Be a part of a dynamic, thriving community of traders, learners, and innovators.</p>
+            <a href="https://www.tradehybrid.co/community" target="_blank" class="button">Join the Community</a>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2024 Trade Hybrid. All rights reserved. Contact us at <a href="mailto:contact@tradehybrid.co">contact@tradehybrid.co</a></p>
+        <p>© 2024 Trade Hybrid. All rights reserved. Contact us at <a href="mailto:contact@tradehybrid.co">contact@tradehybrid.co</a>.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
