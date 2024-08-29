@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trade Hybrid - THC Platform</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body class="dark-theme">
     <div class="toggle-theme" onclick="toggleTheme()">🌙</div>
     <header>
@@ -45,53 +43,43 @@
                 <li><strong>Seamless Blockchain Transactions:</strong> Complete purchases on the blockchain with security and transparency.</li>
                 <li><strong>Real-Time Tracking:</strong> Track your purchases from store to door with integrated beacon technology.</li>
             </ul>
+            <div class="product-storefront">
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="path_to_product_image1.jpg" alt="Trade Hybrid Haze" />
+                        <h3>Trade Hybrid Haze</h3>
+                        <p>A sativa-dominant strain designed for traders who need focus, clarity, and an uplifting mood.</p>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="path_to_product_image2.jpg" alt="Market High" />
+                        <h3>Market High</h3>
+                        <p>Ride the market highs with this energizing sativa that boosts creativity and decision-making.</p>
+                        <button>View Product</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="path_to_product_image3.jpg" alt="Trader's Lift" />
+                        <h3>Trader's Lift</h3>
+                        <p>Stay lifted and alert during long trading sessions with this powerful and uplifting sativa.</p>
+                        <button>View Product</button>
+                    </div>
+                    <!-- Add more products as needed -->
+                </div>
+            </div>
         </div>
 
         <div class="section" id="staking">
             <h2>Stake Your THC</h2>
             <p>Stake your tokens and earn rewards while contributing to the governance and development of the platform.</p>
-            <div class="staking-section">
-                <input type="number" id="stake-amount" placeholder="Enter amount to stake">
-                <button onclick="stakeTokens()">Stake</button>
-                <button onclick="unstakeTokens()">Unstake</button>
-            </div>
+            <input type="number" id="stake-amount" placeholder="Enter amount to stake">
+            <button onclick="stakeTokens()">Stake</button>
+            <button onclick="unstakeTokens()">Unstake</button>
         </div>
 
         <div class="section" id="matrix">
             <h2>Matrix Overview</h2>
             <p>Learn how to maximize your earnings through our unique matrix system. Participate, refer, and grow your wealth with THC.</p>
             <a href="#" class="button">Join the Matrix</a>
-        </div>
-
-        <div class="section" id="strains">
-            <h2>THC Cannabis Strains: Fuel Your Day</h2>
-            <p>Our mission is to support not just financial growth but also your well-being. We’ve partnered with top cannabis growers to create unique strains that align with the needs of our community:</p>
-            <div class="strains">
-                <div class="strain">
-                    <h3>Trade Hybrid Haze</h3>
-                    <p>A sativa-dominant strain designed for traders who need focus, clarity, and an uplifting mood.</p>
-                </div>
-                <div class="strain">
-                    <h3>Market High</h3>
-                    <p>Ride the market highs with this energizing sativa that boosts creativity and decision-making.</p>
-                </div>
-                <div class="strain">
-                    <h3>Trader's Lift</h3>
-                    <p>Stay lifted and alert during long trading sessions with this powerful and uplifting sativa.</p>
-                </div>
-                <div class="strain">
-                    <h3>Downtime Dream</h3>
-                    <p>A calming indica strain that helps traders relax and unwind after a busy day.</p>
-                </div>
-                <div class="strain">
-                    <h3>Market Calm</h3>
-                    <p>This indica-dominant hybrid soothes the mind and body, perfect for easing the stress of market volatility.</p>
-                </div>
-                <div class="strain">
-                    <h3>Trader's Rest</h3>
-                    <p>End your day with this restful indica, designed to melt away tension and promote deep sleep.</p>
-                </div>
-            </div>
         </div>
 
         <div class="section" id="community">
@@ -105,60 +93,6 @@
         <p>© 2024 Trade Hybrid. All rights reserved. Contact us at <a href="mailto:contact@tradehybrid.co">contact@tradehybrid.co</a>.</p>
     </footer>
 
-    <!-- Add your JavaScript here -->
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-
-            if (currentTheme === 'dark') {
-                body.classList.remove('dark-theme');
-                body.classList.add('light-theme');
-                document.querySelector('.toggle-theme').textContent = '🌞';
-            } else {
-                body.classList.remove('light-theme');
-                body.classList.add('dark-theme');
-                document.querySelector('.toggle-theme').textContent = '🌙';
-            }
-        }
-
-        import { Connection, PublicKey, clusterApiUrl, LAMPORTS_PER_SOL } from '@solana/web3.js';
-        import { Program, Provider, web3 } from '@project-serum/anchor';
-
-        // Set up the connection to the Solana cluster
-        const connection = new Connection(clusterApiUrl('mainnet-beta'), 'confirmed');
-
-        // Create a provider
-        const provider = new Provider(connection, window.solana, {
-            preflightCommitment: "recent",
-        });
-
-        // Load the staking program
-        const programID = new PublicKey('YourProgramID');
-        const program = new Program(idl, programID, provider);
-
-        // Stake tokens function
-        async function stakeTokens() {
-            const amount = document.getElementById('stake-amount').value;
-            await program.rpc.stake(new web3.BN(amount), {
-                accounts: {
-                    user: provider.wallet.publicKey,
-                    stake: stakeAccount.publicKey,
-                },
-            });
-        }
-
-        // Unstake tokens function
-        async function unstakeTokens() {
-            const amount = document.getElementById('stake-amount').value;
-            await program.rpc.unstake(new web3.BN(amount), {
-                accounts: {
-                    user: provider.wallet.publicKey,
-                    stake: stakeAccount.publicKey,
-                },
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
