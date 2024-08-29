@@ -1,17 +1,61 @@
 function toggleTheme() {
     const body = document.body;
-    const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+    const toggleIcon = document.querySelector('.toggle-theme');
+    const isDark = body.classList.contains('dark-theme');
 
-    if (currentTheme === 'dark') {
+    if (isDark) {
         body.classList.remove('dark-theme');
         body.classList.add('light-theme');
-        document.querySelector('.toggle-theme').textContent = '🌞';
+        toggleIcon.textContent = '🌞';
     } else {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
-        document.querySelector('.toggle-theme').textContent = '🌙';
+        toggleIcon.textContent = '🌙';
     }
 }
+// Wallet connection
+async function connectWallet() {
+    try {
+        const provider = window.solana;
+        if (provider.isPhantom) {
+            await provider.connect();
+            const walletAddress = provider.publicKey.toString();
+            console.log('Connected wallet:', walletAddress);
+        } else {
+            console.log('Please install a Phantom wallet');
+        }
+    } catch (error) {
+        console.error('Wallet connection error:', error);
+    }
+}
+
+// Staking tokens
+async function stakeTokens(amount) {
+    // Implement the stake function with connected wallet and Solana blockchain
+    console.log(`Staking ${amount} tokens...`);
+    // Insert your staking logic here using Solana Web3.js
+}
+
+async function unstakeTokens(amount) {
+    // Implement the unstake function with connected wallet and Solana blockchain
+    console.log(`Unstaking ${amount} tokens...`);
+    // Insert your unstaking logic here using Solana Web3.js
+}
+
+// Event listeners for staking
+document.getElementById('stake-button').addEventListener('click', () => {
+    const amount = document.getElementById('stake-amount').value;
+    stakeTokens(amount);
+});
+
+document.getElementById('unstake-button').addEventListener('click', () => {
+    const amount = document.getElementById('stake-amount').value;
+    unstakeTokens(amount);
+});
+
+// Call connectWallet when the page loads to connect user's wallet
+window.addEventListener('load', connectWallet);
+
 
 // Optional: Save the user's theme preference in local storage
 function saveThemePreference(theme) {
