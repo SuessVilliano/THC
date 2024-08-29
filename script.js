@@ -1,7 +1,14 @@
-const themeToggleButton = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
+function toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
 
-themeToggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    themeIcon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '🌞';
-});
+    if (currentTheme === 'dark') {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        document.querySelector('.toggle-theme').textContent = '🌞';
+    } else {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        document.querySelector('.toggle-theme').textContent = '🌙';
+    }
+}
