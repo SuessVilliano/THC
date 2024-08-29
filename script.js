@@ -1,5 +1,7 @@
-document.querySelector('.theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    document.querySelector('.sun-icon').style.display = document.body.classList.contains('light-mode') ? 'none' : 'block';
-    document.querySelector('.moon-icon').style.display = document.body.classList.contains('light-mode') ? 'block' : 'none';
+const themeToggleButton = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    themeIcon.textContent = document.body.classList.contains('light-theme') ? '🌙' : '🌞';
 });
