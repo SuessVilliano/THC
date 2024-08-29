@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trade Hybrid - THC Platform</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="dark-theme">
     <div class="toggle-theme" onclick="toggleTheme()">🌙</div>
     <header>
@@ -48,7 +50,11 @@
         <div class="section" id="staking">
             <h2>Stake Your THC</h2>
             <p>Stake your tokens and earn rewards while contributing to the governance and development of the platform.</p>
-            <a href="#" class="button">Start Staking</a>
+            <div class="staking-section">
+                <input type="number" id="stake-amount" placeholder="Enter amount to stake">
+                <button onclick="stakeTokens()">Stake</button>
+                <button onclick="unstakeTokens()">Unstake</button>
+            </div>
         </div>
 
         <div class="section" id="matrix">
@@ -99,6 +105,60 @@
         <p>© 2024 Trade Hybrid. All rights reserved. Contact us at <a href="mailto:contact@tradehybrid.co">contact@tradehybrid.co</a>.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Add your JavaScript here -->
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+
+            if (currentTheme === 'dark') {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                document.querySelector('.toggle-theme').textContent = '🌞';
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                document.querySelector('.toggle-theme').textContent = '🌙';
+            }
+        }
+
+        import { Connection, PublicKey, clusterApiUrl, LAMPORTS_PER_SOL } from '@solana/web3.js';
+        import { Program, Provider, web3 } from '@project-serum/anchor';
+
+        // Set up the connection to the Solana cluster
+        const connection = new Connection(clusterApiUrl('mainnet-beta'), 'confirmed');
+
+        // Create a provider
+        const provider = new Provider(connection, window.solana, {
+            preflightCommitment: "recent",
+        });
+
+        // Load the staking program
+        const programID = new PublicKey('YourProgramID');
+        const program = new Program(idl, programID, provider);
+
+        // Stake tokens function
+        async function stakeTokens() {
+            const amount = document.getElementById('stake-amount').value;
+            await program.rpc.stake(new web3.BN(amount), {
+                accounts: {
+                    user: provider.wallet.publicKey,
+                    stake: stakeAccount.publicKey,
+                },
+            });
+        }
+
+        // Unstake tokens function
+        async function unstakeTokens() {
+            const amount = document.getElementById('stake-amount').value;
+            await program.rpc.unstake(new web3.BN(amount), {
+                accounts: {
+                    user: provider.wallet.publicKey,
+                    stake: stakeAccount.publicKey,
+                },
+            });
+        }
+    </script>
 </body>
+
 </html>
